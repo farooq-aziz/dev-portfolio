@@ -46,7 +46,7 @@ const Home = () => {
               exit='hidden'
               className='max-w-xl xl:max-w-xl mx-auto xl:mx-0 mb-3 md:mb-10 xl:mb-12'
             >
-              Front-End Developer with 2 years of experience with all stages of the development cycle for dynamic web projects. I'm passionate about creating engaging and intuitive for websites. I'm always looking for new ways to innovate and push the boundaries of what's possible.
+              Front-End Developer with 3+ years of experience with all stages of the development cycle for dynamic web projects. I'm passionate about creating engaging and intuitive for websites. I'm always looking for new ways to innovate and push the boundaries of what's possible.
             </motion.p>
             {/* Btn */}
             <div className='flex justify-center xl:hidden relative'>

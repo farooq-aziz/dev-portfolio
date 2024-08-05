@@ -26,6 +26,7 @@ import thumb12 from '../public/thumb12.PNG'
 import thumb13 from '../public/thumb13.png'
 import thumb14 from '../public/thumb14.PNG'
 import thumb15 from '../public/thumb15.png'
+import thumb16 from '../public/thumb16.png'
 
 // Data
 const workData = {
@@ -69,7 +70,7 @@ const workData = {
         {
           title: 'title',
           path: thumb7,
-          url: 'https://infinityanimationspro.com/'
+          url: 'https://infinityanimations.com/'
         },
         {
           title: 'title',
@@ -118,6 +119,11 @@ const workData = {
           title: 'title',
           path: thumb15,
           url: 'https://barbaracamp.com/'
+        },
+        {
+          title: 'title',
+          path: thumb16,
+          url: 'https://creativelogodesigns.io/'
         }
       ],
     },
@@ -135,7 +141,7 @@ const workData1 = {
         {
           title: 'title',
           path: thumb7,
-          url: 'https://infinityanimationspro.com/'
+          url: 'https://infinityanimations.com/'
         },
         {
           title: 'title',
@@ -258,7 +264,7 @@ const workData3 = {
     {
       title: 'title',
       path: thumb7,
-      url: 'https://infinityanimationspro.com/'
+      url: 'https://infinityanimations.com/'
     },
     {
       title: 'title',
@@ -312,7 +318,7 @@ const workData4 = {
     {
       title: 'title',
       path: thumb7,
-      url: 'https://infinityanimationspro.com/'
+      url: 'https://infinityanimations.com/'
     },
     {
       title: 'title',
