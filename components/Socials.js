@@ -8,7 +8,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt, FaDownload } from 'react-
 const Socials = () => {
 
   const opnen = () => {
-    window.open('../Farooq Aziz-Resume.pdf', '_blank');
+    window.open('../Farooq Aziz Resume.pdf', '_blank');
   }
 
   return (

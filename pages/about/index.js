@@ -51,7 +51,7 @@ const aboutData = [
       {
         title: 'Front-End Developer',
         Company: 'Fayba Technologies, Karachi',
-        stage: '2020 - 2021',
+        stage: '2021 - 2022',
       },
     ],
   },
