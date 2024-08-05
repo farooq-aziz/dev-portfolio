@@ -17,7 +17,7 @@ import thumb3 from '../public/thumb3.PNG'
 import thumb4 from '../public/thumb4.PNG'
 import thumb5 from '../public/thumb5.png'
 import thumb6 from '../public/thumb6.png'
-import thumb7 from '../public/thumb7.png'
+import thumb7 from '../public/thumb7.PNG'
 import thumb8 from '../public/thumb8.png'
 import thumb9 from '../public/thumb9.PNG'
 import thumb10 from '../public/thumb10.PNG'
@@ -26,7 +26,7 @@ import thumb12 from '../public/thumb12.PNG'
 import thumb13 from '../public/thumb13.png'
 import thumb14 from '../public/thumb14.PNG'
 import thumb15 from '../public/thumb15.png'
-import thumb16 from '../public/thumb16.png'
+import thumb16 from '../public/thumb16.PNG'
 
 // Data
 const workData = {
@@ -442,7 +442,7 @@ const WorkSlider = () => {
         </button>
       </div>
       {isMobile ? (
-        <div className="swiper-container workslider">
+        <div className="swiper-container workslider mb-4 md:mb-0">
           <Swiper
             spaceBetween={10}
             pagination={{ clickable: true }}

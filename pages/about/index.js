@@ -39,18 +39,18 @@ const aboutData = [
     title: 'Expericence',
     info: [
       {
-        title: 'Front-End Developer',
-        Company: 'Crystallite Digital Pvt',
-        stage: '2022 - Current',
+        title: 'Senior React JS Developer',
+        Company: 'Crystallite Digital Pvt, Karachi',
+        stage: '2023 - Current',
+      },
+      {
+        title: 'Senior Front-End Developer',
+        Company: 'Crystallite Digital Pvt, Karachi',
+        stage: '2022 - 2023',
       },
       {
         title: 'Front-End Developer',
-        Company: 'Jawan Pakistan',
-        stage: '2020 - 2021',
-      },
-      {
-        title: 'Front-End Developer - Intern',
-        Company: 'Jawan Pakistan',
+        Company: 'Fayba Technologies, Karachi',
         stage: '2020 - 2021',
       },
     ],
@@ -138,7 +138,7 @@ const About = () => {
               exit='hidden'
               className='max-w-xl xl:max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-0 text-[14px] md:text-[16px]'
             >
-              Well-versed in numerous programming languages including HTML, CSS, JavaScript as well as proficiency in responsive design. My skills include expertise working with a variety of frameworks and tools, including Bootstrap, Tailwind, React Js, Next Js.
+              I excel in HTML, CSS, and JavaScript with a keen eye for responsive design. My proficiency spans top frameworks and tools like Bootstrap, Tailwind CSS, MUI, React.js, and Next.js, allowing me to create sleek, high-performance websites.
             </motion.p>
             {/* Counters */}
             <motion.div
@@ -152,7 +152,7 @@ const About = () => {
                 {/* Experience */}
                 <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 xl:after:right-[40px]'>
                   <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                    <CountUp start={0} end={2} duration={5} /> +
+                    <CountUp start={0} end={3} duration={5} /> +
                   </div>
                   <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>
                     Years of experience
@@ -161,7 +161,7 @@ const About = () => {
                 {/* Clients */}
                 <div className='relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0 xl:after:right-[40px]'>
                   <div className='text-2xl xl:text-4xl font-extrabold text-accent mb-2'>
-                    <CountUp start={0} end={10} duration={5} /> +
+                    <CountUp start={0} end={15} duration={5} /> +
                   </div>
                   <div className='text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px]'>
                     Satisfied Clients
@@ -192,7 +192,7 @@ const About = () => {
                 return (
                   <div
                     key={itemIndex}
-                    className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} cursor-pointer capitalize text-[14px] md:text-[16px] xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+                    className={`${index === itemIndex ? "text-accent capitalize text-[14px] md:text-[16px] xl:text-lg font-semibold relative after:w-[100%] after:h-[2px] after:bg-accent after:absolute after:-bottom-1 after:left-0 after:transition-all after:duration-300" : "cursor-pointer capitalize text-[14px] md:text-[16px] xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0 after:transition-all after:duration-300"}`}
                     onClick={() => setIndex(itemIndex)}
                   >
                     {item.title}
