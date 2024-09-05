@@ -30,9 +30,9 @@ const Work = () => {
                 initial='hidden'
                 animate='show'
                 exit='hidden'
-                className='mb-4 max-w[400px] mx-auto lg:mx-0 text-[14px] md:text-[16px]'
+                className='mb-4 max-w[400px] mx-auto lg:mx-0 text-[14px] md:text-[16px] text-justify'
               >
-                Explore my portfolio, a showcase of my extensive experience in web development. I've crafted a diverse range of projects, interactive web applications, single-page applications, responsive & cross-browser websites, including e-commerce websites. See my work and discover how I can elevate your online presence.
+                Explore my portfolio, where you'll find a vibrant showcase of my web development expertise. I've had the pleasure of creating a diverse range of dynamic projects across various industries, including eCommerce, Video Animations, Real Estate, Hotel Management, Amazon SEO Companies, eBook Publishers, Digital Marketing Agencies, Healthcare (hospitals and pharmacies) and Web and Mobile App Development Companies. Dive in and discover how my innovative approach can transform and elevate your online presence.
               </motion.p>
             </div>
 
@@ -48,7 +48,6 @@ const Work = () => {
             </motion.div>
           </div>
         </div>
-        <Bulb />
       </div>
     </>
   )

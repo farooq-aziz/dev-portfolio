@@ -22,6 +22,7 @@ const Header = () => {
                 height={40}
                 alt="Logo"
                 priority={true}
+                className="invert"
               />
             </Link>
             {/* Socials */}

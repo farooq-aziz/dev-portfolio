@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import Axios from "axios";
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 // Components
 import Circles from '../../components/Circles'
 // Framer Motion
@@ -10,89 +9,121 @@ import { fadeIn } from '../../variants'
 import { BsArrowRight } from "react-icons/bs";
 
 const Contact = () => {
+  //========== Form
   const [ip, setIP] = useState('');
-  //creating function to load ip address from the API
+  const [errors, setErrors] = useState({});
+  const [formStatus, setFormStatus] = useState('Submit');
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  });
+
+  //========== Fetch IP data from the API
   const getIPData = async () => {
-    const res = await Axios.get('https://geolocation-db.com/json/f2e84010-e1e9-11ed-b2f8-6b70106be3c8');
-    setIP(res.data);
-  }
-  useEffect(() => {
-    getIPData()
-  }, [])
+    try {
+      const response = await fetch('https://ipinfo.io/?token=229b1c3fa2e54c');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setIP(data);
+    } catch (error) {
+      console.error('Error fetching IP data:', error);
+    }
+  };
 
-  const [score, setScore] = useState('Submit');
-
-  const router = useRouter();
-  const currentRoute = router.pathname;
-  const [pagenewurl, setPagenewurl] = useState('');
   useEffect(() => {
-    const pagenewurl = window.location.href;
-    console.log(pagenewurl);
-    setPagenewurl(pagenewurl);
+    getIPData();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const router = usePathname();
+  const currentRoute = router;
 
-    e.preventDefault()
-    var currentdate = new Date().toLocaleString() + ''
+  const handleDataChange = (e) => {
+    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
-    const data = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      message: e.target.message.value,
-      pageUrl: pagenewurl,
-      IP: `${ip.IPv4} - ${ip.country_name} - ${ip.city}`,
-      currentdate: currentdate,
+  const formValidateHandle = () => {
+    let errors = {};
+    if (!data.name.trim()) {
+      errors.name = "Name is required";
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!data.email.match(emailRegex)) {
+      errors.email = "Valid email is required";
+    }
+    const phoneRegex = /^[0-9]+$/;
+    if (!data.phone.match(phoneRegex)) {
+      errors.phone = "Valid phone number is required";
+    }
+    return errors;
+  };
 
-    const JSONdata = JSON.stringify(data)
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus("Processing...");
+    setIsDisabled(true);
 
-    setScore('Sending Data');
-    console.log(JSONdata);
+    const errors = formValidateHandle();
+    setErrors(errors);
 
+    if (Object.keys(errors).length === 0) {
+      const currentdate = new Date().toLocaleString();
+      const dataToSend = {
+        ...data,
+        IP: `${ip.country} - ${ip.city}`,
+        currentdate: currentdate,
+      };
+      const JSONdata = JSON.stringify(dataToSend);
 
-    fetch('api/email/route', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSONdata
-    }).then((res) => {
-      console.log(`Response received ${res}`)
-      if (res.status === 200) {
-        console.log(`Response Successed ${res}`)
+      try {
+        //========== First API call to your server
+        await fetch('/api/email/route', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSONdata
+        });
+
+        //========== Second API call to SheetDB
+        let headersList = {
+          "Accept": "*/*",
+          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+          "Authorization": "Bearer ke2br2ubssi4l8mxswjjxohtd37nzexy042l2eer",
+          "Content-Type": "application/json"
+        };
+        let bodyContent = JSON.stringify({
+          "IP": `${ip.country} - ${ip.city}`,
+          "Brand": "Portfolio",
+          "Page": `${currentRoute}`,
+          "Date & Time": currentdate,
+          "JSON": JSONdata,
+        });
+        await fetch("https://sheetdb.io/api/v1/yscn00ileemoq", {
+          method: "POST",
+          body: bodyContent,
+          headers: headersList
+        });
+
+        setFormStatus("Success...");
+        // setTimeout(() => {
+        //   window.location.href = '/thank-you';
+        // }, 2000);
+      } catch (error) {
+        console.error('Error during form submission:', error);
+        setFormStatus("Failed...");
+        setIsDisabled(false);
       }
-    })
-
-    let headersList = {
-      "Accept": "*/*",
-      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-      "Authorization": "Bearer ke2br2ubssi4l8mxswjjxohtd37nzexy042l2eer",
-      "Content-Type": "application/json"
+    } else {
+      setFormStatus("Failed...");
+      setIsDisabled(false);
     }
-
-    let bodyContent = JSON.stringify({
-      "IP": `${ip.IPv4} - ${ip.country_name} - ${ip.city}`,
-      "Brand": "PortFolio",
-      "Page": `${currentRoute}`,
-      "Date": currentdate,
-      "Time": currentdate,
-      "JSON": JSONdata,
-
-    });
-
-    await fetch("https://sheetdb.io/api/v1/yscn00ileemoq", {
-      method: "POST",
-      body: bodyContent,
-      headers: headersList
-    });
-    const { pathname } = router;
-    if (pathname == pathname) {
-      window.location.href = '/thank-you';
-    }
-  }
+  };
 
   return (
     <>
@@ -113,23 +144,47 @@ const Contact = () => {
             </motion.h2>
             {/* Form */}
             <motion.form
-              onSubmit={handleSubmit}
               variants={fadeIn('up', 0.4)}
               initial='hidden'
               animate='show'
               exit='hidden'
               className='flex flex-1 flex-col gap-4 md:gap-6 w-full mx-auto'>
               {/* Input Group */}
-              <div className='flex flex-col md:flex-row gap-y-4 md:gap-x-6 w-full'>
-                <input type='text' name='name' placeholder='Name' required className='input' />
-                <input type='email' name='email' placeholder='Email' required className='input' />
+              <div className="flex flex-col lg:flex-row gap-4">
+                <div className="relative w-full">
+                  <input type="text" id="name" name="name" className="block p-3 w-full font-sans tracking-wide text-sm text-white border-2 rounded-xl focus:outline-none focus:border-primary-100 bg-transparent" placeholder="Full Name" onChange={handleDataChange} />
+                  {errors.name && (
+                    <span className="text-[12px] block p-2 font-sans font-medium text-primary-100 absolute left-0 bottom-[-58%]">
+                      {errors.name}
+                    </span>
+                  )}
+                </div>
+                <div className="relative w-full">
+                  <input type="email" id="email" name="email" className="block p-3 w-full font-sans tracking-wide text-sm text-white border-2 rounded-xl focus:outline-none focus:border-primary-100 bg-transparent" placeholder="Email Address" onChange={handleDataChange} />
+                  {errors.email && (
+                    <span className="text-[12px] block p-2 font-sans font-medium text-primary-100 absolute left-0 bottom-[-58%]">
+                      {errors.email}
+                    </span>
+                  )}
+                </div>
               </div>
-              <input type='tel' name='phone' placeholder='Number' maxLength={15} minLength={7} required className='input' />
-              <textarea name='message' placeholder='Message' required className='textarea'></textarea>
-              <button className='btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group'>
-                <span className='group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500'>{score}</span>
-                <BsArrowRight className='translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
-              </button>
+              <div className="relative w-full">
+                <input type="tel" id="phone" name="phone" minLength="10" maxLength="13" className="block p-3 w-full font-sans tracking-wide text-sm text-white border-2 rounded-xl focus:outline-none focus:border-primary-100 bg-transparent" placeholder="Phone Number" onChange={handleDataChange} />
+                {errors.phone && (
+                  <span className="text-[12px] block p-2 font-sans font-medium text-primary-100 absolute left-0 bottom-[-58%]">
+                    {errors.phone}
+                  </span>
+                )}
+              </div>
+              <div className="sm:col-span-2">
+                <textarea id="message" name="message" rows="5" className="block p-3 w-full font-sans tracking-wide text-sm text-white border-2 rounded-xl focus:outline-none focus:border-primary-100 bg-transparent resize-none" placeholder="Comment" onChange={handleDataChange} />
+              </div>
+              <div className="w-max flex gap-2 bg-white p-1 rounded-[15px]">
+                <button type="submit" className="bg-black text-white border-0 h-[40px] lg:h-[50px] px-3 2xl:px-6 rounded-[15px] flex items-center gap-x-2 focus:outline-none" onClick={handleFormSubmit} disabled={isDisabled}>
+                  <span className='text-[16px] lg:text-[12px] xl:text-[16px] 2xl:text-[18px] font-normal font-sans tracking-wide'>{formStatus}</span>
+                  <BsArrowRight className='translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
+                </button>
+              </div>
             </motion.form>
           </div>
         </div>

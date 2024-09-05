@@ -16,7 +16,7 @@ const Home = () => {
       <div className='bg-primary/30 h-full'>
         {/* Text */}
         <div className='w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10'>
-          <div className='text-center flex flex-col justify-start pt-24 md:pt-40 xl:text-left h-full container mx-auto'>
+          <div className='text-center flex flex-col justify-center pt-24 xl:text-left h-full container mx-auto'>
             {/* Title */}
             <motion.h1
               variants={fadeIn('down', 0.2)}
@@ -44,9 +44,9 @@ const Home = () => {
               initial='hidden'
               animate='show'
               exit='hidden'
-              className='max-w-xl xl:max-w-xl mx-auto xl:mx-0 mb-3 md:mb-10 xl:mb-12'
+              className='max-w-xl xl:max-w-xl mx-auto xl:mx-0 mb-3 md:mb-6 xl:mb-8 text-justify'
             >
-              Skilled Front-End Developer with 3+ years of experience with all stages of the development cycle for dynamic web projects. Passionate about transforming concepts into sleek, user-friendly interfaces that deliver exceptional user experiences.
+              Innovative Senior Front-End Developer with 3 years of experience delivering standout digital solutions across various industries. Specializing in crafting clean, visually stunning interfaces that ensure an exceptional and intuitive user experience.
             </motion.p>
             {/* Btn */}
             <div className='flex justify-center xl:hidden relative'>

@@ -2,16 +2,19 @@ import react, { useState } from "react";
 
 // Icons
 import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-} from "react-icons/fa";
-
-import {
   SiNextdotjs,
   SiTailwindcss,
   SiBootstrap,
+  SiUnity,
+  SiCsharp,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiReact,
+  SiGithub,
+  SiFirebase,
+  SiAdobephotoshop,
+  SiAdobexd,
 } from "react-icons/si";
 
 
@@ -23,13 +26,19 @@ const aboutData = [
       {
         title: 'Web Development',
         icons: [
-          <FaHtml5 />,
-          <FaCss3 />,
-          <FaJs />,
-          <FaReact />,
+          <SiHtml5 />,
+          <SiCss3 />,
+          <SiJavascript />,
+          <SiReact />,
           <SiNextdotjs />,
           <SiBootstrap />,
           <SiTailwindcss />,
+          <SiUnity />,
+          <SiCsharp />,
+          <SiGithub />,
+          <SiFirebase />,
+          <SiAdobephotoshop />,
+          <SiAdobexd />,
         ],
       },
     ],
@@ -42,42 +51,47 @@ const aboutData = [
         title: 'Senior React JS Developer',
         Company: 'Crystallite Digital Pvt, Karachi',
         stage: '2023 - Current',
+        details: [
+          "Developed and maintained advanced UIs with React.js and Next.js, focusing on reusability and performance optimization.",
+          "Utilized Next.js for server-side rendering and static site generation across diverse sectors, such as eCommerce & Video Animation Sites.",
+          "Integrated RESTful APIs and GraphQL for dynamic data handling and real-time updates, enhancing responsiveness and engagement."
+        ]
       },
       {
         title: 'Senior Front-End Developer',
         Company: 'Crystallite Digital Pvt, Karachi',
         stage: '2022 - 2023',
+        details: [
+          "Developed websites for Real Estate, Hotel Management, Amazon SEO Company, eBook Publishers, and Digital Marketing Agencies.",
+          "Created multiple responsive websites for mobile and desktop devices using HTML, CSS and JS as well as third-party libraries such as jQuery.",
+          "Mentored junior developers and led code reviews, promoting best practices and improving team productivity."
+        ]
       },
       {
-        title: 'Front-End Developer',
-        Company: 'Fayba Technologies, Karachi',
+        title: 'Junior Front-End Developer',
+        Company: 'Web Experts, Karachi',
         stage: '2021 - 2022',
+        details: [
+          "Developed and executed front-end development strategies, resulting in website performance and cross-browser compatibility.",
+          "Built websites for Healthcare (Hospitals & Pharmacies) as well as platforms for Web and Mobile App Development Company.",
+          "Tested and debugged code to ensure compatibility and stability, resulting in website errors and improved website functionality."
+        ]
+      },
+      {
+        title: 'Front-End Developer (Intern)',
+        Company: 'ZM Global, Karachi',
+        stage: '2021 - 2021',
+        details: [
+          "Assisted in the creation and implementation of user interface components, enhancing user engagement and experience.",
+          "Worked with senior developers to integrate responsive design techniques, ensuring seamless performance across devices.",
+          "Assisted in the optimization of front-end assets, contributing to a more efficient and faster-loading website."
+        ]
       },
     ],
   },
+
   {
-    title: 'Certification',
-    info: [
-      {
-        title: 'Web & Mobile App Development',
-        stage: 'Jawan Pakistan',
-      },
-      {
-        title: 'Html5 & Css3',
-        stage: 'pirple.com',
-      },
-      {
-        title: 'WordPress',
-        stage: 'DigiSkills',
-      },
-      {
-        title: 'Certified Information Technology - (CIT)',
-        stage: 'Global Computer Institute',
-      },
-    ],
-  },
-  {
-    title: 'Credentials',
+    title: 'Education',
     info: [
       {
         title: 'Bachelor of Science - Software Engineering',
@@ -88,6 +102,67 @@ const aboutData = [
         title: 'Intermediate - Computer Science',
         Company: 'Govt Atta Shad Degree Collage, Quetta',
         stage: '2014 - 2016',
+      },
+      {
+        title: 'Matriculation in Science',
+        Company: 'KGH High School, Quetta',
+        stage: '2012 - 2014',
+      },
+    ],
+  },
+
+  {
+    title: 'Certification',
+    info: [
+      {
+        title: 'Advance Game Development (Unity)',
+        Company: 'NeXskill, Karachi',
+        stage: 'In Process',
+      },
+      {
+        title: 'Web & Mobile App Development',
+        Company: 'Jawan Pakistan, Karachi',
+        stage: '2022',
+      },
+      {
+        title: 'JavaScript',
+        Company: 'kandi.openweaver.com',
+        stage: '2022',
+      },
+      {
+        title: 'Html5 & Css3',
+        Company: 'pirple.com',
+        stage: '2021',
+      },
+      {
+        title: 'WordPress',
+        Company: 'Digiskills Training Program',
+        stage: '2020',
+      },
+      {
+        title: 'SEO (Search Engine Optimization)',
+        Company: 'Digiskills Training Program',
+        stage: '2020',
+      },
+      {
+        title: 'Freelancing',
+        Company: 'Digiskills Training Program',
+        stage: '2020',
+      },
+      {
+        title: 'Graphic Design',
+        Company: 'Digiskills Training Program',
+        stage: '2020',
+      },
+      {
+        title: ' E-Commerce Management',
+        Company: 'Digiskills Training Program',
+        stage: '2020',
+      },
+      {
+        title: 'Certified Information Technology - (CIT)',
+        Company: 'Global Computer Institute',
+        stage: '2017',
       },
     ],
   },
@@ -136,9 +211,9 @@ const About = () => {
               initial='hidden'
               animate='show'
               exit='hidden'
-              className='max-w-xl xl:max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-0 text-[14px] md:text-[16px]'
+              className='max-w-xl xl:max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-0 text-[14px] md:text-[16px] text-justify'
             >
-              I excel in HTML, CSS, and JavaScript with a keen eye for responsive design. My proficiency spans top frameworks and tools like Bootstrap, Tailwind CSS, MUI, React.js, and Next.js, allowing me to create sleek, high-performance websites.
+              I excel in HTML, CSS, and JavaScript, with a strong focus on developing responsive, user-friendly, and cross-browser compatible websites. My skill set includes top frameworks and tools like Bootstrap, Tailwind CSS, MUI, React.js, and Next.js, enabling me to build sleek, high-performance websites that make an impact.
             </motion.p>
             {/* Counters */}
             <motion.div
@@ -185,7 +260,7 @@ const About = () => {
             initial='hidden'
             animate='show'
             exit='hidden'
-            className='flex flex-col w-full xl:max-w-[48%] h-[350px]'
+            className='flex flex-col w-full xl:max-w-[48%] h-[350px] relative'
           >
             <div className='flex gap-x-3 md:gap-x-8 mx-auto xl:mx-0 mb-6 mt-0 md:mt-4 lg:mt-0'>
               {aboutData.map((item, itemIndex) => {
@@ -200,7 +275,7 @@ const About = () => {
                 )
               })}
             </div>
-            <div className='w-full md:w-[60%] mx-auto lg:w-full pb-[135px] md:pb-[100px] lg:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-start mt-2 xl:mt-0'>
+            <div className='w-full md:w-[60%] mx-auto lg:w-full pb-[135px] md:pb-[100px] pt-3 lg:pb-0 flex flex-col gap-y-4 xl:gap-y-5 items-start mt-2 xl:mt-0 overflow-y-scroll'>
               {aboutData[index].info.map((item, itemIndex) => {
                 return (
                   <div
@@ -211,23 +286,32 @@ const About = () => {
                     <div className='font-bold text-[14px] md:text-[15px] lg:text-[20px] mb-0'>{item.title}</div>
                     <div className='text-[14px] md:text-[15px] lg:text-[16px] mb-0'>{item.Company}</div>
                     <div className='text-[14px] md:text-[15px] lg:text-[16px] mb-0'>{item.stage}</div>
+                    {item.details && item.details.length > 0 && (
+                      <ul className='ps-4 mt-2 flex flex-col gap-1'>
+                        {item.details.map((detailsItem, detailsItemIndex) => (
+                          <li key={detailsItemIndex} className="list-disc text-[15px] mb-0">{detailsItem}</li>
+                        ))}
+                      </ul>
+                    )}
                     {/* Icons */}
-                    <div className='flex flex-wrap gap-y-5 md:gap-y-0 gap-x-16 md:gap-x-8 mt-3 xl:mt-5'>
-                      {item.icons?.map((icon, iconIndex) => {
-                        return (
+                    {item.icons && item.icons.length > 0 && (
+                      <div className='flex flex-wrap gap-y-5 md:gap-y-8 gap-x-16 md:gap-x-10 mt-3 xl:mt-5'>
+                        {item.icons.map((icon, iconIndex) => (
                           <div key={iconIndex}>
                             <span className='text-2xl xl:text-4xl text-white'>{icon}</span>
                           </div>
-                        )
-                      })}
-                    </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )
               })}
             </div>
+            <div className="mouseScroll">
+              <div className="mouse"></div>
+            </div>
           </motion.div>
         </div>
-        <Bulb />
       </div>
     </>
   )

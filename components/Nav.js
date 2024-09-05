@@ -12,7 +12,7 @@ import {
 export const navData = [
   { name: 'home', path: '/', icon: <HiHome className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
   { name: 'about', path: '/about', icon: <HiUser className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
-  { name: 'services', path: '/services', icon: <HiRectangleGroup className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
+  // { name: 'services', path: '/services', icon: <HiRectangleGroup className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
   { name: 'work', path: '/work', icon: <HiViewColumns className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
   // { name: 'testimonials', path: '/testimonials', icon: <HiChatBubbleBottomCenterText className='text-[24px] md:text-[28px] lg:text-[24px]' /> },
   { name: 'contact', path: '/contact', icon: <HiEnvelope className='text-[24px] md:text-[28px] lg:text-[24px]' /> },

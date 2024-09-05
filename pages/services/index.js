@@ -34,7 +34,7 @@ const Services = () => {
                 exit='hidden'
                 className='mb-0 md:mb-4 max-w[400px] mx-auto lg:mx-0 text-[14px] md:text-[16px]'
               >
-                As a Front-End Developer with expertise in HTML, CSS, Bootstrap, Tailwind CSS, MUI, JavaScript, React.js, and Next.js. I can create custom responsive and user-friendly websites.
+                Explore how my front-end development expertise can turn your ideas into stunning realities. Checkout my services to see how I can help bring your vision to life—whether you’re looking to revamp your existing site or build a new one from scratch. I’m here to make your project a success.
               </motion.p>
             </div>
 
