@@ -1,50 +1,105 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      padding: {
-        DEFAULT: '15px',
-      },
-    },
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '960px',
-      xl: '1200px',
-    },
     extend: {
+      container: {
+        center: true,
+        padding: '1rem',
+      },
+      screens: {
+        'xs': { 'max': '576px' },
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
+        '2xl': '1400px',
+      },
       colors: {
         primary: '#131424',
         secondary: '#393A47',
         accent: '#F13024',
       },
+      fontFamily: {
+        poppins: [`var(--font-poppins)`, 'sans-serif'],
+        sora: [`var(--font-sora)`, 'sans-serif'],
+      },
       backgroundImage: {
-        explosion: 'url("/bg-explosion.png")',
-        circles: 'url("/bg-circles.png")',
         circleStar: 'url("/circle-star.svg")',
         site: 'url("/site-bg.svg")',
       },
       animation: {
         'spin-slow': 'spin 6s linear infinite',
+        "fade-in": "fade-in 3s ease-in-out forwards",
+        title: "title 3s ease-out forwards",
+        "fade-left": "fade-left 3s ease-in-out forwards",
+        "fade-right": "fade-right 3s ease-in-out forwards",
       },
-      fontFamily: {
-        poppins: [`var(--font-poppins)`, 'sans-serif'],
-        sora: [`var(--font-sora)`, 'sans-serif'],
+      keyframes: {
+        "fade-in": {
+          "0%": {
+            opacity: "0%",
+          },
+          "75%": {
+            opacity: "0%",
+          },
+          "100%": {
+            opacity: "100%",
+          },
+        },
+        "fade-left": {
+          "0%": {
+            transform: "translateX(100%)",
+            opacity: "0%",
+          },
+
+          "30%": {
+            transform: "translateX(0%)",
+            opacity: "100%",
+          },
+          "100%": {
+            opacity: "0%",
+          },
+        },
+        "fade-right": {
+          "0%": {
+            transform: "translateX(-100%)",
+            opacity: "0%",
+          },
+
+          "30%": {
+            transform: "translateX(0%)",
+            opacity: "100%",
+          },
+          "100%": {
+            opacity: "0%",
+          },
+        },
+        title: {
+          "0%": {
+            "line-height": "0%",
+            "letter-spacing": "0.25em",
+            opacity: "0",
+          },
+          "25%": {
+            "line-height": "0%",
+            opacity: "0%",
+          },
+          "80%": {
+            opacity: "100%",
+          },
+
+          "100%": {
+            "line-height": "100%",
+            opacity: "100%",
+          },
+        },
       },
     },
   },
-  container: {
-    padding: {
-      DEFAULT: '15px',
-    },
-  },
-  plugins: [require('tailwind-scrollbar')],
+  plugins: [],
 };
