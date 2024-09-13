@@ -12,7 +12,7 @@ const ParticlesContainer = dynamic(() => import('./particlescontainer/ParticlesC
 const About = dynamic(() => import('./about/About'))
 const Contact = dynamic(() => import('./contact/Contact'))
 const Work = dynamic(() => import('./work/Work'))
-const FolioCards = dynamic(() => import('./folioCards/FolioCards'))
+const FolioCards = dynamic(() => import('./foliocards/FolioCards'))
 const SkillCards = dynamic(() => import('./skillcards/SkillCards'))
 const ExpericenceCards = dynamic(() => import('./expericencecards/ExpericenceCards'))
 const EducationCards = dynamic(() => import('./educationcards/EducationCards'))
