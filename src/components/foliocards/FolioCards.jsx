@@ -41,12 +41,12 @@ import card30 from 'media/thumbnils/card-30.PNG'
 import card31 from 'media/thumbnils/card-31.png'
 //==== Email Templates
 import template1 from 'media/thumbnils/template1.PNG'
-import template2 from 'media/thumbnils/template2.png'
-import template3 from 'media/thumbnils/template3.png'
-import template4 from 'media/thumbnils/template4.png'
-import template5 from 'media/thumbnils/template5.png'
-import template6 from 'media/thumbnils/template6.png'
-import template7 from 'media/thumbnils/template7.png'
+import template2 from 'media/thumbnils/template2.PNG'
+import template3 from 'media/thumbnils/template3.PNG'
+import template4 from 'media/thumbnils/template4.PNG'
+import template5 from 'media/thumbnils/template5.PNG'
+import template6 from 'media/thumbnils/template6.PNG'
+import template7 from 'media/thumbnils/template7.PNG'
 
 
 //===== Data
