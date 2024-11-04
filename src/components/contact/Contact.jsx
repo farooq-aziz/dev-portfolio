@@ -1,184 +1,138 @@
 "use client"
-//===== Imports
-import { useState, useEffect } from 'react';
+//===== Import Components
+import { Form } from "@/components";
 //===== Framer Motion
 import { motion } from "framer-motion";
 import { fadeIn } from '../variants'
 //===== Icons
-import { BsArrowRight } from "react-icons/bs";
+import { FaPhoneAlt, FaRegEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaFacebookF, FaInstagram } from 'react-icons/fa'
 
 const Contact = () => {
-    //========== Form
-    const [ip, setIP] = useState('');
-    const [errors, setErrors] = useState({});
-    const [formStatus, setFormStatus] = useState('Submit');
-    const [isDisabled, setIsDisabled] = useState(false);
-    const [data, setData] = useState({
-        name: "",
-        phone: "",
-        email: "",
-        message: ""
-    });
-
-    //========== Fetch IP data from the API
-    const getIPData = async () => {
-        try {
-            const res = await Axios.get('https://ipwho.is/');
-            setIP(res.data);
-        } catch (error) {
-            console.error('Error fetching IP data:', error);
-        }
-    };
-
-    useEffect(() => {
-        getIPData();
-    }, []);
-
-    const handleDataChange = (e) => {
-        setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
-
-    const formValidateHandle = () => {
-        let errors = {};
-        if (!data.name.trim()) {
-            errors.name = "Name is required";
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!data.email.match(emailRegex)) {
-            errors.email = "Valid email is required";
-        }
-        const phoneRegex = /^[0-9]+$/;
-        if (!data.phone.match(phoneRegex)) {
-            errors.phone = "Valid phone number is required";
-        }
-        return errors;
-    };
-
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-        setFormStatus("Processing...");
-        setIsDisabled(true);
-
-        const errors = formValidateHandle();
-        setErrors(errors);
-
-        if (Object.keys(errors).length === 0) {
-            const currentdate = new Date().toLocaleString();
-            const dataToSend = {
-                ...data,
-                IP: `${ip.country} - ${ip.city}`,
-                currentdate: currentdate,
-            };
-            const JSONdata = JSON.stringify(dataToSend);
-
-            try {
-                //========== First API call to your server
-                await fetch('/api/email/', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSONdata
-                });
-
-                //========== Second API call to SheetDB
-                let headersList = {
-                    "Accept": "*/*",
-                    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-                    "Authorization": "Bearer ke2br2ubssi4l8mxswjjxohtd37nzexy042l2eer",
-                    "Content-Type": "application/json"
-                };
-                let bodyContent = JSON.stringify({
-                    "IP": `${ip.country} - ${ip.city}`,
-                    "Brand": "Portfolio",
-                    "Date & Time": currentdate,
-                    "JSON": JSONdata,
-                });
-                await fetch("https://sheetdb.io/api/v1/yscn00ileemoq", {
-                    method: "POST",
-                    body: bodyContent,
-                    headers: headersList
-                });
-
-                setFormStatus("Success...");
-                setTimeout(() => {
-                    window.location.href = '/thank-you';
-                }, 2000);
-            } catch (error) {
-                console.error('Error during form submission:', error);
-                setFormStatus("Failed...");
-                setIsDisabled(false);
-            }
-        } else {
-            setFormStatus("Failed...");
-            setIsDisabled(false);
-        }
-    };
-
     return (
         <>
-            <div className='bg-gradient-to-tl from-black via-zinc-600/20 to-black h-full relativ '>
-                {/* About me */}
-                <div className='w-full h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
-                    <div className='container mx-auto text-center xl:text-left flex items-center justify-center h-full overflow-x-hidden'>
-                        {/* Text & Form */}
-                        <div className='flex flex-col w-full max-w-[700px] mt-[-35%] md:mt-0'>
-                            {/* Text */}
+            <div className='bg-gradient-to-tl from-black via-zinc-600/20 to-black h-full relative'>
+                <div className='bg-gradient-to-tl from-black via-zinc-600/20 to-black pt-[100px] lg:pt-[150px] pb-28 xl:pb-20 3xl:pb-0 3xl:h-screen'>
+                    <div className='container mx-auto text-center xl:text-left flex flex-col items-center justify-center h-full overflow-x-hidden'>
+                        <div className='flex flex-col justify-center mb-10 md:mb-20'>
                             <motion.h2
-                                variants={fadeIn('up', 0.2)}
+                                variants={fadeIn('right', 0.2)}
                                 initial='hidden'
                                 animate='show'
                                 exit='hidden'
-                                className='text-[30px] font-bold md:h2 text-center mb-4 md:mb-12'
+                                className='text-[30px] font-bold md:h2 text-center !mb-0'
                             >
-                                Let's
-                                <span className='text-accent'> Connect.</span>
+                                Contact <span className='text-accent'>Me</span>.
                             </motion.h2>
-                            {/* Form */}
-                            <motion.form
-                                variants={fadeIn('up', 0.4)}
+                            <motion.p
+                                variants={fadeIn('right', 0.4)}
                                 initial='hidden'
                                 animate='show'
                                 exit='hidden'
-                                className='flex flex-1 flex-col gap-4 md:gap-6 w-full mx-auto'>
-                                {/* Input Group */}
-                                <div className='flex flex-col md:flex-row gap-y-4 md:gap-x-6 w-full'>
-                                    <div className="relative w-full">
-                                        <input type='text' name='name' placeholder='Name' required className='input' onChange={handleDataChange} />
-                                        {errors.name && (
-                                            <span className="text-[12px] block p-2 font-sans font-medium text-accent absolute left-0 bottom-[-55%]">
-                                                {errors.name}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <div className="relative w-full">
-                                        <input type='email' name='email' placeholder='Email' required className='input' onChange={handleDataChange} />
-                                        {errors.email && (
-                                            <span className="text-[12px] block p-2 font-sans font-medium text-accent absolute left-0 bottom-[-55%]">
-                                                {errors.email}
-                                            </span>
-                                        )}
-                                    </div>
+                                className='w-full px-0 text-[14px] md:text-[16px] text-center'
+                            >
+                                Let’s work together. Feel free to contact me.
+                            </motion.p>
+                        </div>
+                        <div className="flex flex-col lg:flex-row items-center justify-between w-full xl:w-[90%]">
+                            <div className='flex basis-1/4 flex-col gap-8 w-full mb-10 lg:mb-0'>
+                                <div className="flex-col gap-10">
+                                    <motion.div
+                                        variants={fadeIn('down', 0.2)}
+                                        initial='hidden'
+                                        animate='show'
+                                        exit='hidden'
+                                        className='text-[20px] font-normal mb-4 xl:mb-6 text-left'
+                                    >
+                                        Contact Info
+                                    </motion.div>
+                                    <motion.div
+                                        variants={fadeIn('right', 0.2)}
+                                        initial='hidden'
+                                        animate='show'
+                                        exit='hidden'
+                                        className='mt-5 md:mt-0 mb-4 xl:mb-6'
+                                    >
+                                        <div className="flex flex-col gap-10">
+                                            <a href="mailto:farooqazizbaloch@gmail.com" className="flex items-center gap-6">
+                                                <div className='p-5 bg-zinc-600/20 rounded-md'>
+                                                    <FaRegEnvelope className="text-[30px]" />
+                                                </div>
+                                                <div className='flex flex-col items-start'>
+                                                    <p>Email:</p>
+                                                    <p className="text-white font-normal">farooqazizbaloch@gmail.com</p>
+                                                </div>
+                                            </a>
+                                            <a href="tel:tel:03162300835" className="flex items-center gap-6">
+                                                <div className='p-5 bg-zinc-600/20 rounded-md'>
+                                                    <FaPhoneAlt className="text-[30px]" />
+                                                </div>
+                                                <div className='flex flex-col items-start'>
+                                                    <p>Phone:</p>
+                                                    <p className="text-white font-normal">+92-316-230-0835</p>
+                                                </div>
+                                            </a>
+                                            <a href="https://maps.app.goo.gl/mgGd26DMF3qw7bz66" target="_blank" className="flex items-center gap-6">
+                                                <div className='p-5 bg-zinc-600/20 rounded-md'>
+                                                    <FaMapMarkerAlt className="text-[30px]" />
+                                                </div>
+                                                <div className='flex flex-col items-start'>
+                                                    <p>Address:</p>
+                                                    <p className="text-white font-normal">Karachi, Pakistan</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </motion.div>
                                 </div>
-                                <div className="relative">
-                                    <input type='tel' name='phone' placeholder='Number' maxLength={15} minLength={7} required className='input' onChange={handleDataChange} />
-                                    {errors.phone && (
-                                        <span className="text-[12px] block p-2 font-sans font-medium text-accent absolute left-0 bottom-[-55%]">
-                                            {errors.phone}
-                                        </span>
-                                    )}
+                                <div className="flex-col gap-10">
+                                    <motion.div
+                                        variants={fadeIn('down', 0.2)}
+                                        initial='hidden'
+                                        animate='show'
+                                        exit='hidden'
+                                        className='text-[20px] font-normal mb-4 xl:mb-6 text-left'
+                                    >
+                                        Social Info
+                                    </motion.div>
+                                    <motion.div
+                                        variants={fadeIn('right', 0.2)}
+                                        initial='hidden'
+                                        animate='show'
+                                        exit='hidden'
+                                        className='mt-5 md:mt-0'
+                                    >
+                                        <div className="flex items-center gap-6">
+                                            <a href="http://www.linkedin.com/in/farooq-aziz-b09b40223" target="_blank" className='p-5 bg-zinc-600/20 rounded-full'>
+                                                <FaLinkedin className="text-[30px]" />
+                                            </a>
+                                            <a href="https://github.com/farooq-aziz" target="_blank" className='p-5 bg-zinc-600/20 rounded-full'>
+                                                <FaGithub className="text-[30px]" />
+                                            </a>
+                                            {/* <a href="mailto:farooqazizbaloch@gmail.com" target="_blank" className='p-5 bg-zinc-600/20 rounded-full'>
+                                                    <FaFacebookF className="text-[30px]" />
+                                                </a>
+                                                <a href="mailto:farooqazizbaloch@gmail.com" target="_blank" className='p-5 bg-zinc-600/20 rounded-full'>
+                                                    <FaInstagram className="text-[30px]" />
+                                                </a> */}
+                                        </div>
+                                    </motion.div>
                                 </div>
-                                <div>
-                                    <textarea name='message' placeholder='Message' required className='textarea'></textarea>
-                                </div>
-                                <div>
-                                    <button className='btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group' onClick={handleFormSubmit} disabled={isDisabled}>
-                                        <span className='group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500'>{formStatus}</span>
-                                        <BsArrowRight className='translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[22px]' />
-                                    </button>
-                                </div>
-                            </motion.form>
+
+                            </div>
+                            <div className='flex basis-2/4 flex-col p-5 md:p-10 bg-zinc-600/20 rounded-2xl w-full'>
+                                {/* Text */}
+                                <motion.h2
+                                    variants={fadeIn('down', 0.2)}
+                                    initial='hidden'
+                                    animate='show'
+                                    exit='hidden'
+                                    className='text-[30px] md:text-[40px] lg:h2 font-bold mb-4 xl:mb-6'
+                                >
+                                    Let's
+                                    <span className='text-accent'> Connect</span>.
+                                </motion.h2>
+                                {/* Form */}
+                                <Form />
+                            </div>
                         </div>
                     </div>
                 </div>

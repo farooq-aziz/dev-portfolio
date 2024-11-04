@@ -23,17 +23,17 @@
   }
   .btn,
   .input {
-    @apply h-[52px];
+    @apply h-[50px];
   }
   .input {
-    @apply w-full h-[52px] rounded-lg pl-6;
+    @apply w-full h-[50px] rounded-lg pl-6;
   }
   .input,
   .textarea {
     @apply bg-transparent outline-none focus:ring-1 focus:ring-accent border border-white/20 placeholder:text-white/30 placeholder:font-light;
   }
   .textarea {
-    @apply w-full h-[180px] p-6 rounded-lg resize-none;
+    @apply w-full h-[150px] p-6 rounded-lg resize-none;
   }
 }
 
@@ -114,5 +114,9 @@ body {
 @media screen and (max-width: 767px) {
   .contact textarea {
     height: 100px;
+  }
+
+  .mouseScroll {
+    left: 45%;
   }
 }

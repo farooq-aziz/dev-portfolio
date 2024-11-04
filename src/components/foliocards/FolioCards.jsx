@@ -4,204 +4,516 @@ import React, { useState } from "react";
 import Image from "next/image";
 //===== Icons
 import { BsArrowRight, BsCodeSlash, BsLaptop, BsStar } from "react-icons/bs";
+//===== Framer Motion
+import { motion } from "framer-motion";
+import { fadeIn } from '../variants'
 //===== Images
-import thumb1 from 'media/thumb1.PNG'
-import thumb2 from 'media/thumb2.PNG'
-import thumb3 from 'media/thumb3.PNG'
-import thumb4 from 'media/thumb4.PNG'
-import thumb5 from 'media/thumb5.png'
-import thumb6 from 'media/thumb6.png'
-import thumb7 from 'media/thumb7.PNG'
-import thumb8 from 'media/thumb8.png'
-import thumb9 from 'media/thumb9.PNG'
-import thumb10 from 'media/thumb10.PNG'
-import thumb11 from 'media/thumb11.PNG'
-import thumb12 from 'media/thumb12.PNG'
-import thumb13 from 'media/thumb13.png'
-import thumb14 from 'media/thumb14.PNG'
-import thumb15 from 'media/thumb15.png'
-import thumb16 from 'media/thumb16.PNG'
+import card1 from 'media/thumbnils/card-1.png'
+import card2 from 'media/thumbnils/card-2.png'
+import card3 from 'media/thumbnils/card-3.png'
+import card4 from 'media/thumbnils/card-4.png'
+import card5 from 'media/thumbnils/card-5.png'
+import card6 from 'media/thumbnils/card-6.png'
+import card7 from 'media/thumbnils/card-7.png'
+import card8 from 'media/thumbnils/card-8.png'
+import card9 from 'media/thumbnils/card-9.png'
+import card10 from 'media/thumbnils/card-10.png'
+import card11 from 'media/thumbnils/card-11.png'
+import card12 from 'media/thumbnils/card-12.png'
+import card13 from 'media/thumbnils/card-13.png'
+import card14 from 'media/thumbnils/card-14.png'
+import card15 from 'media/thumbnils/card-15.PNG'
+import card16 from 'media/thumbnils/card-16.png'
+import card17 from 'media/thumbnils/card-17.png'
+import card18 from 'media/thumbnils/card-18.png'
+import card19 from 'media/thumbnils/card-19.png'
+import card20 from 'media/thumbnils/card-20.png'
+import card21 from 'media/thumbnils/card-21.png'
+import card22 from 'media/thumbnils/card-22.png'
+import card23 from 'media/thumbnils/card-23.png'
+import card24 from 'media/thumbnils/card-24.png'
+import card25 from 'media/thumbnils/card-25.PNG'
+import card26 from 'media/thumbnils/card-26.png'
+import card27 from 'media/thumbnils/card-27.png'
+import card28 from 'media/thumbnils/card-28.png'
+import card29 from 'media/thumbnils/card-29.png'
+import card30 from 'media/thumbnils/card-30.png'
+import card31 from 'media/thumbnils/card-31.png'
+//==== Email Templates
+import template1 from 'media/thumbnils/template1.png'
+import template2 from 'media/thumbnils/template2.png'
+import template3 from 'media/thumbnils/template3.png'
+import template4 from 'media/thumbnils/template4.png'
+import template5 from 'media/thumbnils/template5.png'
+import template6 from 'media/thumbnils/template6.png'
+import template7 from 'media/thumbnils/template7.png'
+
 
 //===== Data
-const workData = {
-    slides: [
-        {
-            images: [
-                {
-                    title: 'title',
-                    path: thumb1,
-                    url: 'https://www.bitswits.co/'
-                },
-                {
-                    title: 'title',
-                    path: thumb2,
-                    url: 'https://www.bookwritingexperts.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb3,
-                    url: 'https://amazonsquare.vercel.app/'
-                },
-                {
-                    title: 'title',
-                    path: thumb4,
-                    url: 'https://bestsellingpublisher.com'
-                },
-                {
-                    title: 'title',
-                    path: thumb5,
-                    url: 'https://fsf-mart-pk.netlify.app/'
-                },
-                {
-                    title: 'title',
-                    path: thumb6,
-                    url: 'https://crystallitedigital.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb7,
-                    url: 'https://infinityanimations.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb8,
-                    url: 'https://seoresultspro.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb9,
-                    url: 'https://www.webdesignhub.co/'
-                },
-                {
-                    title: 'title',
-                    path: thumb10,
-                    url: 'https://explainervideosllc.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb11,
-                    url: 'https://infinitywebbuilders.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb12,
-                    url: 'https://edesignmind.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb13,
-                    url: 'https://prescription-pk.netlify.app/'
-                },
-                {
-                    title: 'title',
-                    path: thumb14,
-                    url: 'https://www.realestateagents.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb15,
-                    url: 'https://barbaracamp.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb16,
-                    url: 'https://creativelogodesigns.io/'
-                }
-            ],
-        },
-    ],
-};
-const workData1 = {
-    slides: [
-        {
-            images: [
-                {
-                    title: 'title',
-                    path: thumb6,
-                    url: 'https://crystallitedigital.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb7,
-                    url: 'https://infinityanimations.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb8,
-                    url: 'https://seoresultspro.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb10,
-                    url: 'https://explainervideosllc.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb1,
-                    url: 'https://www.bitswits.co/'
-                },
-                {
-                    title: 'title',
-                    path: thumb2,
-                    url: 'https://www.bookwritingexperts.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb3,
-                    url: 'https://amazonsquare.vercel.app/'
-                },
-                {
-                    title: 'title',
-                    path: thumb4,
-                    url: 'https://bestsellingpublisher.com'
-                },
-                {
-                    title: 'title',
-                    path: thumb11,
-                    url: 'https://infinitywebbuilders.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb12,
-                    url: 'https://edesignmind.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb14,
-                    url: 'https://www.realestateagents.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb9,
-                    url: 'https://www.webdesignhub.co/'
-                }
-            ],
-        }
-    ],
-};
-const workData2 = {
-    slides: [
-        {
-            images: [
-                {
-                    title: 'title',
-                    path: thumb5,
-                    url: 'https://fsf-mart-pk.netlify.app/'
-                },
-                {
-                    title: 'title',
-                    path: thumb15,
-                    url: 'https://barbaracamp.com/'
-                },
-                {
-                    title: 'title',
-                    path: thumb13,
-                    url: 'https://prescription-pk.netlify.app/'
-                }
-            ],
-        }
-    ],
-};
+const all = [
+    {
+        title: 'title',
+        path: card23,
+        url: 'https://crystallitedigital.com/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card24,
+        url: 'https://infinityanimations.com/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card25,
+        url: 'https://amazonsquare.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card26,
+        url: 'https://www.realestateagents.com/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card29,
+        url: 'https://fsf-mart-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card30,
+        url: 'https://new-brand-phi.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card28,
+        url: 'https://www.lazaret4.hr/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card18,
+        url: 'https://farooqaziz.netlify.app/work/cryptocurrency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card19,
+        url: 'https://farooqaziz.netlify.app/work/coffee-shop-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card3,
+        url: 'https://farooqaziz.netlify.app/work/spa-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card15,
+        url: 'https://farooqaziz.netlify.app/work/ecommerce-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card5,
+        url: 'https://farooqaziz.netlify.app/work/shipping-company-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card21,
+        url: 'https://farooqaziz.netlify.app/work/bakery-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card7,
+        url: 'https://farooqaziz.netlify.app/work/security-guard-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card8,
+        url: 'https://farooqaziz.netlify.app/work/real-estate-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card9,
+        url: 'https://farooqaziz.netlify.app/work/preschool-website-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card10,
+        url: 'https://farooqaziz.netlify.app/work/physical-therapy-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card11,
+        url: 'https://farooqaziz.netlify.app/work/photo-studio-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card12,
+        url: 'https://farooqaziz.netlify.app/work/laboratory-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card13,
+        url: 'https://farooqaziz.netlify.app/work/hair-salon-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card27,
+        url: 'https://barbaracamp.com/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card14,
+        url: 'https://farooqaziz.netlify.app/work/gym-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card4,
+        url: 'https://farooqaziz.netlify.app/work/solar-energy-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card16,
+        url: 'https://farooqaziz.netlify.app/work/driving-school-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card17,
+        url: 'https://farooqaziz.netlify.app/work/dental-clinic-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card1,
+        url: 'https://farooqaziz.netlify.app/work/travel-agency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card22,
+        url: 'https://farooqaziz.netlify.app/work/ac-repair-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card20,
+        url: 'https://farooqaziz.netlify.app/work/cctv-camera-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card6,
+        url: 'https://farooqaziz.netlify.app/work/seo-agency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card2,
+        url: 'https://farooqaziz.netlify.app/work/tourist-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card31,
+        url: 'https://prescription-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    }
+]
+// ==============
+const websites = [
+    {
+        title: 'title',
+        path: card23,
+        url: 'https://crystallitedigital.com/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card24,
+        url: 'https://infinityanimations.com/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card25,
+        url: 'https://amazonsquare.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card26,
+        url: 'https://www.realestateagents.com/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card30,
+        url: 'https://new-brand-phi.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
+    },
+    {
+        title: 'title',
+        path: card28,
+        url: 'https://www.lazaret4.hr/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card18,
+        url: 'https://farooqaziz.netlify.app/work/cryptocurrency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card3,
+        url: 'https://farooqaziz.netlify.app/work/spa-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card5,
+        url: 'https://farooqaziz.netlify.app/work/shipping-company-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card7,
+        url: 'https://farooqaziz.netlify.app/work/security-guard-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card8,
+        url: 'https://farooqaziz.netlify.app/work/real-estate-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card9,
+        url: 'https://farooqaziz.netlify.app/work/preschool-website-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card10,
+        url: 'https://farooqaziz.netlify.app/work/physical-therapy-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card11,
+        url: 'https://farooqaziz.netlify.app/work/photo-studio-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card12,
+        url: 'https://farooqaziz.netlify.app/work/laboratory-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card13,
+        url: 'https://farooqaziz.netlify.app/work/hair-salon-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card14,
+        url: 'https://farooqaziz.netlify.app/work/gym-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card4,
+        url: 'https://farooqaziz.netlify.app/work/solar-energy-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card16,
+        url: 'https://farooqaziz.netlify.app/work/driving-school-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card17,
+        url: 'https://farooqaziz.netlify.app/work/dental-clinic-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card1,
+        url: 'https://farooqaziz.netlify.app/work/travel-agency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card22,
+        url: 'https://farooqaziz.netlify.app/work/ac-repair-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card20,
+        url: 'https://farooqaziz.netlify.app/work/cctv-camera-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card6,
+        url: 'https://farooqaziz.netlify.app/work/seo-agency-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card2,
+        url: 'https://farooqaziz.netlify.app/work/tourist-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+]
+// ==================
+const landingPages = [
+    {
+        title: 'title',
+        path: card29,
+        url: 'https://fsf-mart-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card19,
+        url: 'https://farooqaziz.netlify.app/work/coffee-shop-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card15,
+        url: 'https://farooqaziz.netlify.app/work/ecommerce-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card21,
+        url: 'https://farooqaziz.netlify.app/work/bakery-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card27,
+        url: 'https://barbaracamp.com/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card31,
+        url: 'https://prescription-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    }
+]
+// ==================
+const ecommerce = [
+    {
+        title: 'title',
+        path: card29,
+        url: 'https://fsf-mart-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card19,
+        url: 'https://farooqaziz.netlify.app/work/coffee-shop-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card15,
+        url: 'https://farooqaziz.netlify.app/work/ecommerce-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card21,
+        url: 'https://farooqaziz.netlify.app/work/bakery-website/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card27,
+        url: 'https://barbaracamp.com/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    },
+    {
+        title: 'title',
+        path: card31,
+        url: 'https://prescription-pk.netlify.app/',
+        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+    }
+]
+// ==================
+const email = [
+    {
+        title: 'title',
+        path: template1,
+        url: 'https://farooqaziz.netlify.app/work/jumpto1-email-template-helloween/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template2,
+        url: 'https://farooqaziz.netlify.app/work/infinityanimations-email-template-helloween/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template3,
+        url: 'https://farooqaziz.netlify.app/work/h&w-email-template-2/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template4,
+        url: 'https://farooqaziz.netlify.app/work/h&w-email-template-1/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template5,
+        url: 'https://farooqaziz.netlify.app/work/bitswits-email-template/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template6,
+        url: 'https://farooqaziz.netlify.app/work/infinityanimations-email-template-thankyou/',
+        tags: ['HTML', 'CSS'],
+    },
+    {
+        title: 'title',
+        path: template7,
+        url: 'https://farooqaziz.netlify.app/work/infinityanimations-email-template/',
+        tags: ['HTML', 'CSS'],
+    }
+]
 
 const FolioCards = () => {
     // ===========================
@@ -212,10 +524,17 @@ const FolioCards = () => {
         setActiveTab(tabId);
         setSelectedWorkUrl(workUrl);
     };
+
     return (
         <>
-            <div className="w-[95%]">
-                <div className="tabs flex flex-wrap justify-around mb-12">
+            <div className="w-full xl:w-[95%]">
+                <motion.div
+                    variants={fadeIn('down', 0.6)}
+                    initial='hidden'
+                    whileInView='show'
+                    exit='hidden'
+                    className="tabs flex flex-wrap justify-center lg:justify-around gap-8 md:gap-16 gap-y-5 md:gap-y-8 lg:gap-0 mb-12"
+                >
                     <button
                         className={`tab ${activeTab === "All" ? "active text-accent border-accent" : ""} btn border border-white/50 px-5 h-[40px] transition-all duration-300 flex items-center justify-center gap-x-2 overflow-hidden hover:border-accent hover:text-accent group`}
                         onClick={() => handleTabClick("All")}
@@ -224,11 +543,19 @@ const FolioCards = () => {
                         <span className="mb-[-5px]">All</span>
                     </button>
                     <button
-                        className={`tab ${activeTab === "Web Development" ? "active text-accent border-accent" : ""} btn border border-white/50 px-5 h-[40px] transition-all duration-300 flex items-center justify-center gap-x-2 overflow-hidden hover:border-accent hover:text-accent group`}
-                        onClick={() => handleTabClick("Web Development")}
+                        className={`tab ${activeTab === "Websites" ? "active text-accent border-accent" : ""} btn border border-white/50 px-5 h-[40px] transition-all duration-300 flex items-center justify-center gap-x-2 overflow-hidden hover:border-accent hover:text-accent group`}
+                        onClick={() => handleTabClick("Websites")}
                     >
                         <BsCodeSlash />
-                        <span className="mb-[-2px]">Web Development</span>
+                        <span className="mb-[-2px]">Websites</span>
+
+                    </button>
+                    <button
+                        className={`tab ${activeTab === "Landing Pages" ? "active text-accent border-accent" : ""} btn border border-white/50 px-5 h-[40px] transition-all duration-300 flex items-center justify-center gap-x-2 overflow-hidden hover:border-accent hover:text-accent group`}
+                        onClick={() => handleTabClick("Landing Pages")}
+                    >
+                        <BsCodeSlash />
+                        <span className="mb-[-2px]">Landing Pages</span>
 
                     </button>
                     <button
@@ -238,139 +565,224 @@ const FolioCards = () => {
                         <BsLaptop />
                         <span className="mb-[-4px]">ECommerce</span>
                     </button>
-                </div>
+                    <button
+                        className={`tab ${activeTab === "Email Templates" ? "active text-accent border-accent" : ""} btn border border-white/50 px-5 h-[40px] transition-all duration-300 flex items-center justify-center gap-x-2 overflow-hidden hover:border-accent hover:text-accent group`}
+                        onClick={() => handleTabClick("Email Templates")}
+                    >
+                        <BsLaptop />
+                        <span className="mb-[-4px]">Email Templates</span>
+                    </button>
+                </motion.div>
                 {/* =================== */}
-                <div className="swiper-container workslider mb-12">
+                <div className="workslider mb-24 xl:mb-12">
                     {activeTab === "All" && (
-                        <>
-                            {workData.slides.map((slide) => {
-                                return (
-                                    <div className="grid grid-cols-3 gap-6 cursor-pointer">
-                                        {
-                                            slide.images.map((image, index) => {
-                                                return (
-                                                    <div className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group border border-slate-600">
-                                                        <a href={image.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center relative overflow-hidden group"
-                                                            key={index}
-                                                        >
-                                                            {/* Images */}
-                                                            <Image src={image.path} width={500} height={300} alt="Work" />
-                                                            {/* Overlay Gradirnt */}
-                                                            <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                                                            {/* Title */}
-                                                            <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-8 group-hover:md:-translate-y-20 transition-all duration-300">
-                                                                <div className="flex items-center gap-x-2 text-[8px] md:text-[13px] tracking-[0.2em]">
-                                                                    {/* Title part 1 */}
-                                                                    <div className="delay-100">
-                                                                        VISIT
-                                                                    </div>
-                                                                    {/* Title part 2 */}
-                                                                    <div className="translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">
-                                                                        WEBSITE
-                                                                    </div>
-                                                                    {/* Icons */}
-                                                                    <div className="text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-200">
-                                                                        <BsArrowRight />
-                                                                    </div>
+                        <motion.div
+                            variants={fadeIn('right', 0.6)}
+                            initial='hidden'
+                            whileInView='show'
+                            exit='hidden'
+                            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
+                            {
+                                all.map((item, index) => {
+                                    const tags = item.tags || [];
+
+                                    return (
+                                        <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
+                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                                {/* Images */}
+                                                <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
+                                                {/* Overlay Gradient */}
+                                                <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+                                                {/* Title */}
+                                                <div className="w-full absolute bottom-0 translate-y-full group-hover:-translate-y-5 transition-all duration-700">
+                                                    <div className="flex items-center justify-between px-5">
+                                                        <div className="flex items-center gap-x-2">
+                                                            {tags.map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className={`text-[8px] md:text-[14px] leading-tight border p-2 rounded-md translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-${tagIndex * 100} cursor-default`}>
+                                                                    {tag}
                                                                 </div>
-                                                            </div>
+                                                            ))}
+                                                        </div>
+                                                        {/* Icons */}
+                                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xl border-2 rounded-full p-2 translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-200">
+                                                            <BsArrowRight className="rotate-[-35deg] hover:rotate-0 transition-all duration-300" />
                                                         </a>
                                                     </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                );
-                            })}
-                        </>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </motion.div>
                     )}
 
-                    {activeTab === "Web Development" && (
-                        <>
-                            {workData1.slides.map((slide, index) => {
-                                return (
-                                    <div className="grid grid-cols-3 gap-0 gap-y-4 lg:gap-4 cursor-pointer">
-                                        {
-                                            slide.images.map((image, index) => {
-                                                return (
-                                                    <div className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group border border-slate-600">
-                                                        <a href={image.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center relative overflow-hidden group"
-                                                            key={index}
-                                                        >
-                                                            {/* Images */}
-                                                            <Image src={image.path} width={500} height={300} alt="Work" />
-                                                            {/* Overlay Gradirnt */}
-                                                            <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                                                            {/* Title */}
-                                                            <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-8 group-hover:md:-translate-y-20 transition-all duration-300">
-                                                                <div className="flex items-center gap-x-2 text-[8px] md:text-[13px] tracking-[0.2em]">
-                                                                    {/* Title part 1 */}
-                                                                    <div className="delay-100">
-                                                                        VISIT
-                                                                    </div>
-                                                                    {/* Title part 2 */}
-                                                                    <div className="translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">
-                                                                        WEBSITE
-                                                                    </div>
-                                                                    {/* Icons */}
-                                                                    <div className="text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-200">
-                                                                        <BsArrowRight />
-                                                                    </div>
+                    {activeTab === "Websites" && (
+                        <motion.div
+                            variants={fadeIn('right', 0.6)}
+                            initial='hidden'
+                            whileInView='show'
+                            exit='hidden'
+                            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
+                            {
+                                websites.map((item, index) => {
+                                    const tags = item.tags || [];
+
+                                    return (
+                                        <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
+                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                                {/* Images */}
+                                                <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
+                                                {/* Overlay Gradient */}
+                                                <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+                                                {/* Title */}
+                                                <div className="w-full absolute bottom-0 translate-y-full group-hover:-translate-y-5 transition-all duration-700">
+                                                    <div className="flex items-center justify-between px-5">
+                                                        <div className="flex items-center gap-x-2">
+                                                            {tags.map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className={`text-[8px] md:text-[14px] leading-tight border p-2 rounded-md translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-${tagIndex * 100} cursor-default`}>
+                                                                    {tag}
                                                                 </div>
-                                                            </div>
+                                                            ))}
+                                                        </div>
+                                                        {/* Icons */}
+                                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xl border-2 rounded-full p-2 translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-200">
+                                                            <BsArrowRight className="rotate-[-35deg] hover:rotate-0 transition-all duration-300" />
                                                         </a>
                                                     </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                );
-                            })}
-                        </>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </motion.div>
+                    )}
+
+                    {activeTab === "Landing Pages" && (
+                        <motion.div
+                            variants={fadeIn('right', 0.6)}
+                            initial='hidden'
+                            whileInView='show'
+                            exit='hidden'
+                            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
+                            {
+                                landingPages.map((item, index) => {
+                                    const tags = item.tags || [];
+
+                                    return (
+                                        <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
+                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                                {/* Images */}
+                                                <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
+                                                {/* Overlay Gradient */}
+                                                <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+                                                {/* Title */}
+                                                <div className="w-full absolute bottom-0 translate-y-full group-hover:-translate-y-5 transition-all duration-700">
+                                                    <div className="flex items-center justify-between px-5">
+                                                        <div className="flex items-center gap-x-2">
+                                                            {tags.map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className={`text-[8px] md:text-[14px] leading-tight border p-2 rounded-md translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-${tagIndex * 100} cursor-default`}>
+                                                                    {tag}
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                        {/* Icons */}
+                                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xl border-2 rounded-full p-2 translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-200">
+                                                            <BsArrowRight className="rotate-[-35deg] hover:rotate-0 transition-all duration-300" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </motion.div>
                     )}
 
                     {activeTab === "ECommerce" && (
-                        <>
-                            {workData2.slides.map((slide, index) => {
-                                return (
-                                    <div className="grid grid-cols-3 gap-0 gap-y-4 lg:gap-4 cursor-pointer">
-                                        {
-                                            slide.images.map((image, index) => {
-                                                return (
-                                                    <div className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group border border-slate-600">
-                                                        <a href={image.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center relative overflow-hidden group"
-                                                            key={index}
-                                                        >
-                                                            {/* Images */}
-                                                            <Image src={image.path} width={500} height={300} alt="Work" />
-                                                            {/* Overlay Gradirnt */}
-                                                            <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                                                            {/* Title */}
-                                                            <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-8 group-hover:md:-translate-y-20 transition-all duration-300">
-                                                                <div className="flex items-center gap-x-2 text-[8px] md:text-[13px] tracking-[0.2em]">
-                                                                    {/* Title part 1 */}
-                                                                    <div className="delay-100">
-                                                                        VISIT
-                                                                    </div>
-                                                                    {/* Title part 2 */}
-                                                                    <div className="translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">
-                                                                        WEBSITE
-                                                                    </div>
-                                                                    {/* Icons */}
-                                                                    <div className="text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-200">
-                                                                        <BsArrowRight />
-                                                                    </div>
+                        <motion.div
+                            variants={fadeIn('right', 0.6)}
+                            initial='hidden'
+                            whileInView='show'
+                            exit='hidden'
+                            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
+                            {
+                                ecommerce.map((item, index) => {
+                                    const tags = item.tags || [];
+
+                                    return (
+                                        <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
+                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                                {/* Images */}
+                                                <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
+                                                {/* Overlay Gradient */}
+                                                <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+                                                {/* Title */}
+                                                <div className="w-full absolute bottom-0 translate-y-full group-hover:-translate-y-5 transition-all duration-700">
+                                                    <div className="flex items-center justify-between px-5">
+                                                        <div className="flex items-center gap-x-2">
+                                                            {tags.map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className={`text-[8px] md:text-[14px] leading-tight border p-2 rounded-md translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-${tagIndex * 100} cursor-default`}>
+                                                                    {tag}
                                                                 </div>
-                                                            </div>
+                                                            ))}
+                                                        </div>
+                                                        {/* Icons */}
+                                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xl border-2 rounded-full p-2 translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-200">
+                                                            <BsArrowRight className="rotate-[-35deg] hover:rotate-0 transition-all duration-300" />
                                                         </a>
                                                     </div>
-                                                )
-                                            })
-                                        }
-                                    </div>
-                                );
-                            })}
-                        </>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </motion.div>
+                    )}
+
+                    {activeTab === "Email Templates" && (
+                        <motion.div
+                            variants={fadeIn('right', 0.6)}
+                            initial='hidden'
+                            whileInView='show'
+                            exit='hidden'
+                            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10">
+                            {
+                                email.map((item, index) => {
+                                    const tags = item.tags || [];
+
+                                    return (
+                                        <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
+                                            <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
+                                                {/* Images */}
+                                                <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full h-full" />
+                                                {/* Overlay Gradient */}
+                                                <div className="absolute inset-0 bg-gradient-to-tl from-black via-zinc-600 to-black opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
+                                                {/* Title */}
+                                                <div className="w-full absolute bottom-0 translate-y-full group-hover:-translate-y-5 transition-all duration-700">
+                                                    <div className="flex items-center justify-between px-5">
+                                                        <div className="flex items-center gap-x-2">
+                                                            {tags.map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className={`text-[8px] md:text-[14px] leading-tight border p-2 rounded-md translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-${tagIndex * 100} cursor-default`}>
+                                                                    {tag}
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                        {/* Icons */}
+                                                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-xl border-2 rounded-full p-2 translate-y-[500%] group-hover:translate-y-0 transition-all duration-700 delay-200">
+                                                            <BsArrowRight className="rotate-[-35deg] hover:rotate-0 transition-all duration-300" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </motion.div>
                     )}
                 </div>
             </div>

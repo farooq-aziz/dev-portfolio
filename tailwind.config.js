@@ -18,6 +18,7 @@ module.exports = {
         'lg': '992px',
         'xl': '1200px',
         '2xl': '1400px',
+        '3xl': '1600px',
       },
       colors: {
         primary: '#131424',
@@ -99,6 +100,9 @@ module.exports = {
           },
         },
       },
+      boxShadow: {
+        custom: 'rgba(255, 255, 255, 0.10) 0px 5px 15px',
+      }
     },
   },
   plugins: [],

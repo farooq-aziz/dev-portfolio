@@ -17,6 +17,7 @@ const SkillCards = dynamic(() => import('./skillcards/SkillCards'))
 const ExpericenceCards = dynamic(() => import('./expericencecards/ExpericenceCards'))
 const EducationCards = dynamic(() => import('./educationcards/EducationCards'))
 const CertificationCards = dynamic(() => import('./certificationcards/CertificationCards'))
+const Form = dynamic(() => import('./form/Form'))
 
 export {
     AutoPlaySlider,
@@ -36,4 +37,5 @@ export {
     ExpericenceCards,
     EducationCards,
     CertificationCards,
+    Form,
 }

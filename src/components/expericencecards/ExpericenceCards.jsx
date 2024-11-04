@@ -47,7 +47,7 @@ const experience = [
 
 const ExpericenceCards = ({ onMouseMove, style }) => {
     return (
-        <div className="grid grid-cols-2 gap-x-8 gap-y-8 w-[95%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 w-full xl:w-[95%]">
             {experience.map(({ title, company, stage, details }, index) => (
                 <div key={index} onMouseMove={onMouseMove} className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600">
                     <div className="pointer-events-none">
