@@ -8,11 +8,11 @@ import { BsArrowRight, BsCodeSlash, BsLaptop, BsStar } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { fadeIn } from '../variants'
 //===== Images
-import card1 from 'media/thumbnils/card-1.png'
-import card2 from 'media/thumbnils/card-2.png'
-import card3 from 'media/thumbnils/card-3.png'
-import card4 from 'media/thumbnils/card-4.png'
-import card5 from 'media/thumbnils/card-5.png'
+import card1 from 'media/thumbnils/card-1.PNG'
+import card2 from 'media/thumbnils/card-2.PNG'
+import card3 from 'media/thumbnils/card-3.PNG'
+import card4 from 'media/thumbnils/card-4.PNG'
+import card5 from 'media/thumbnils/card-5.PNG'
 import card6 from 'media/thumbnils/card-6.png'
 import card7 from 'media/thumbnils/card-7.png'
 import card8 from 'media/thumbnils/card-8.png'
