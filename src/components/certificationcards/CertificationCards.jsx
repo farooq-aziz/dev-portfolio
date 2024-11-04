@@ -6,7 +6,7 @@ const certification = [
     {
         title: 'Advance Game Development',
         company: 'NeXskill, Karachi',
-        stage: 'In Process',
+        stage: '2024',
     },
     {
         title: 'Web & Mobile App Development',

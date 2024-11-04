@@ -25,7 +25,7 @@ const experience = [
     },
     {
         title: 'Junior Front-End Developer',
-        company: 'Web Experts, Karachi',
+        company: 'WebExperts, Karachi',
         stage: '2021 - 2022',
         details: [
             "Developed and executed front-end development strategies, resulting in website performance and cross-browser compatibility.",

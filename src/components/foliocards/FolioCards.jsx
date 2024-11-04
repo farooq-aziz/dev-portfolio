@@ -395,40 +395,22 @@ const websites = [
 const landingPages = [
     {
         title: 'title',
-        path: card29,
-        url: 'https://fsf-mart-pk.netlify.app/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+        path: card24,
+        url: 'https://infinityanimations.com/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
     },
     {
         title: 'title',
-        path: card19,
-        url: 'https://farooqaziz.netlify.app/work/coffee-shop-website/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+        path: card25,
+        url: 'https://amazonsquare.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
     },
     {
         title: 'title',
-        path: card15,
-        url: 'https://farooqaziz.netlify.app/work/ecommerce-website/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
+        path: card30,
+        url: 'https://new-brand-phi.vercel.app/',
+        tags: ['React.JS', 'Next.JS', 'Tailwind'],
     },
-    {
-        title: 'title',
-        path: card21,
-        url: 'https://farooqaziz.netlify.app/work/bakery-website/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
-    },
-    {
-        title: 'title',
-        path: card27,
-        url: 'https://barbaracamp.com/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
-    },
-    {
-        title: 'title',
-        path: card31,
-        url: 'https://prescription-pk.netlify.app/',
-        tags: ['HTML', 'Bootstrap', 'JavaScript'],
-    }
 ]
 // ==================
 const ecommerce = [
@@ -588,7 +570,7 @@ const FolioCards = () => {
 
                                     return (
                                         <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
-                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                            <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
                                                 {/* Images */}
                                                 <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
                                                 {/* Overlay Gradient */}
@@ -630,7 +612,7 @@ const FolioCards = () => {
 
                                     return (
                                         <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
-                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                            <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
                                                 {/* Images */}
                                                 <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
                                                 {/* Overlay Gradient */}
@@ -672,7 +654,7 @@ const FolioCards = () => {
 
                                     return (
                                         <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
-                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                            <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
                                                 {/* Images */}
                                                 <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
                                                 {/* Overlay Gradient */}
@@ -714,7 +696,7 @@ const FolioCards = () => {
 
                                     return (
                                         <div key={index} className="w-full mx-auto relative rounded-lg overflow-hidden flex items-center justify-center group shadow-custom">
-                                            <div className="flex items-center justify-center relative overflow-hidden group">
+                                            <div className="flex items-center justify-center relative overflow-hidden group w-full h-full">
                                                 {/* Images */}
                                                 <Image priority src={item.path} width={500} height={400} alt="Work" className="w-full" />
                                                 {/* Overlay Gradient */}
